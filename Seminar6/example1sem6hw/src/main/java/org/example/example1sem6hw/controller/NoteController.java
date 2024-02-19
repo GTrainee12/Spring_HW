@@ -1,5 +1,6 @@
 package org.example.example1sem6hw.controller;
 
+import lombok.AllArgsConstructor;
 import org.example.example1sem6hw.model.Note;
 import org.example.example1sem6hw.repository.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +12,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/notes")
 public class NoteController {
-    private NoteRepository noteRepository;
 
-    @Autowired
-    public NoteController(NoteRepository noteRepository) {
-        this.noteRepository = noteRepository;
-    }
+
+
+    private NoteRepository noteRepository;
 
     @PostMapping
     public ResponseEntity<Note> addNote(@RequestBody Note note) {
